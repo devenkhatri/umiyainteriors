@@ -62,8 +62,8 @@ CategoryTemplate.propTypes = propTypes
 export default CategoryTemplate
 
 export const pageQuery = graphql`
-  query($id: String!) {
-    contentfulCategory(id: { eq: $id }) {
+  query($slug: String!) {
+    contentfulCategory(slug: { eq: $slug }) {
       title {
         title
       }

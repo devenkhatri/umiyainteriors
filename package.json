@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-example-using-contentful",
+  "name": "umiya-interiors",
   "private": true,
-  "description": "Gatsby example site using the Contentful source plugin",
+  "description": "Umiya Interiors, Gandhinagar Gujarat famous furniture showroom for office and household",
   "version": "1.0.0",
-  "author": "Marcus Ericsson <mericsson@gmail.com> (mericsson.com)",
+  "author": "Deven Goratela",
   "dependencies": {
     "gatsby": "^2.0.0",
     "gatsby-core-utils": "^1.0.28",
@@ -22,7 +22,9 @@
     "typography-breakpoint-constants": "^0.15.0"
   },
   "keywords": [
-    "gatsby"
+    "gandhinagar",
+    "furniture",
+    "showroom"
   ],
   "license": "MIT",
   "main": "n/a",

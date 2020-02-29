@@ -44,7 +44,7 @@ class ProductTemplate extends React.Component {
             <ul>
               {categories.map((category, i) => (
                 <li key={i}>
-                  <Link key={i} to={`/categories/${category.id}`}>
+                  <Link key={i} to={`/categories/${category.slug}`}>
                     {category.title.title}
                   </Link>
                 </li>
@@ -62,8 +62,8 @@ ProductTemplate.propTypes = propTypes
 export default ProductTemplate
 
 export const pageQuery = graphql`
-  query($id: String!) {
-    contentfulProduct(id: { eq: $id }) {
+  query($slug: String!) {
+    contentfulProduct(slug: { eq: $slug }) {
       productName {
         productName
       }
@@ -73,6 +73,7 @@ export const pageQuery = graphql`
         }
       }
       price
+      discountedPrice
       image {
         fixed(width: 50, height: 50) {
           base64
@@ -89,6 +90,7 @@ export const pageQuery = graphql`
       }
       categories {
         id
+        slug
         title {
           title
         }

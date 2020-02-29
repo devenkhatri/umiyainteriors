@@ -18,7 +18,7 @@ exports.createPages = ({ graphql, actions }) => {
         allContentfulProduct(limit: 1000) {
           edges {
             node {
-              id
+              slug
             }
           }
         }
@@ -43,10 +43,10 @@ exports.createPages = ({ graphql, actions }) => {
           // as a template component. The `context` is
           // optional but is often necessary so the template
           // can query data specific to each page.
-          path: `/products/${edge.node.id}/`,
+          path: `/products/${edge.node.slug}/`,
           component: slash(productTemplate),
           context: {
-            id: edge.node.id,
+            slug: edge.node.slug,
           },
         })
       })
@@ -58,7 +58,7 @@ exports.createPages = ({ graphql, actions }) => {
             allContentfulCategory(limit: 1000) {
               edges {
                 node {
-                  id
+                  slug
                 }
               }
             }
@@ -82,10 +82,10 @@ exports.createPages = ({ graphql, actions }) => {
             // as a template component. The `context` is
             // optional but is often necessary so the template
             // can query data specific to each page.
-            path: `/categories/${edge.node.id}/`,
+            path: `/categories/${edge.node.slug}/`,
             component: slash(categoryTemplate),
             context: {
-              id: edge.node.id,
+              slug: edge.node.slug,
             },
           })
         })
