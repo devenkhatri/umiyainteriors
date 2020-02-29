@@ -2,9 +2,8 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import * as PropTypes from "prop-types"
 import Img from "gatsby-image"
-import Layout from "../layouts"
-
-import { rhythm } from "../utils/typography"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 const propTypes = {
   data: PropTypes.object.isRequired,
@@ -21,18 +20,17 @@ class CategoryTemplate extends React.Component {
     const iconImg = icon.fixed
     return (
       <Layout>
+        <SEO title="Category Name" />
         <div
           style={{
             display: `flex`,
             alignItems: `center`,
-            marginBottom: rhythm(1 / 2),
           }}
         >
           <Img
             style={{
               height: iconImg.height,
               width: iconImg.width,
-              marginRight: rhythm(1 / 2),
             }}
             fixed={iconImg}
           />
