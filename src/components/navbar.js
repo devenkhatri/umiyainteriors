@@ -7,7 +7,7 @@ const Navigationbar = () => {
 
   return (
     <div>
-      <Navbar bg="info" variant="dark" expand="lg">
+      <Navbar bg="primary" variant="dark" expand="lg">
         <Navbar.Brand href="/">
           <img
             alt=""

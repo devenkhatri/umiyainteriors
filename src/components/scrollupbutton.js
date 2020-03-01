@@ -13,7 +13,7 @@ const ScrollupButton = () => {
         easing="easeInOutCubic"
         style={{ bottom: 30, right: 20 }}
       >
-        <FiArrowUpCircle className="btn-info" style={{
+        <FiArrowUpCircle className="btn-primary" style={{
           width: `40px`,
           height: `40px`,
           borderRadius: `50%`,
