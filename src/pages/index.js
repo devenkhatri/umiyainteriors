@@ -39,17 +39,18 @@ const Product = ({ node }) => (
 
 class IndexPage extends React.Component {
   render() {
-    const usProductEdges = this.props.data.us.edges
+    const allProductEdges = this.props.data.allContentfulProduct.edges
+    const allCategoryEdges = this.props.data.allContentfulCategory.edges
     return (
       <Layout>
         <SEO title="Homepage" />
         <Banner />
-        <ExploreCategories />
+        <ExploreCategories data={allCategoryEdges} />
         <NewArrivals />
         <BestSellers />
         <div>
           <h3>en-US</h3>
-          {usProductEdges.map(({ node }, i) => (
+          {allProductEdges.map(({ node }, i) => (
             <Product node={node} key={node.id} />
           ))}
         </div>
@@ -64,7 +65,7 @@ export default IndexPage
 
 export const pageQuery = graphql`
   query {
-    us: allContentfulProduct(filter: { node_locale: { eq: "en-US" } }) {
+    allContentfulProduct {
       edges {
         node {
           id
@@ -73,8 +74,24 @@ export const pageQuery = graphql`
             productName
           }
           image {
-            fixed(width: 75) {
+            fixed {
               ...GatsbyContentfulFixed
+            }
+          }
+        }
+      }
+    }
+    allContentfulCategory {
+      edges {
+        node {
+          id
+          slug
+          title {
+            title
+          }
+          icon {
+            fluid {
+              ...GatsbyContentfulFluid
             }
           }
         }
