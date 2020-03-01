@@ -40,7 +40,7 @@ const ProductDetailPage = ({ data, location }) => {
               </Carousel.Item>
             </Carousel>
           </Col>
-          <Col xs={7}>
+          <Col md={7}>
             <Card>
               <Card.Body>
                 <h2>Product Name</h2>
