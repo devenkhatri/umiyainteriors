@@ -7,7 +7,7 @@ const Navigationbar = () => {
 
   return (
     <div>
-      <Navbar bg="primary" variant="dark" expand="lg">
+      <Navbar bg="dark" variant="dark" expand="lg">
         <Navbar.Brand href="/">
           <img
             alt=""
@@ -15,7 +15,7 @@ const Navigationbar = () => {
             width="30"
             height="30"
             className="d-inline-block align-top"
-          />{' '}React-Bootstrap
+          />{' '}UMIYA <span className="text-primary">INTERIOR</span>
       </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

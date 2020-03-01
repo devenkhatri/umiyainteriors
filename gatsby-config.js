@@ -1,12 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: `Umiya Interiors`,
+    title: `Umiya Interior`,
 	author: {
       name: `Deven Goratela`,
       summary: `who lives and works in Gandhinagar building useful things.`,
     },
-    description: `Umiya Interiors, Gandhinagar Gujarat famous furniture showroom for office and household`,
-    siteUrl: `https://umiyainteriors.netlify.com/`,
+    description: `Umiya Interior, Famous Furniture Showroom for Interior Solution for Office and Household, Gandhinagar, Gujarat`,
+    siteUrl: `https://umiyainterior.netlify.com/`,
   },
   plugins: [
     {
@@ -47,12 +47,11 @@ module.exports = {
         //trackingId: `ADD YOUR TRACKING ID HERE`,
       },
     },
-    `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Umiya Interiors`,
-        short_name: `UmiyaInteriors`,
+        name: `Umiya Interior`,
+        short_name: `UmiyaInterior`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,

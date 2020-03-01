@@ -1,7 +1,7 @@
 {
-  "name": "umiya-interiors",
+  "name": "umiya-interior",
   "private": true,
-  "description": "Umiya Interiors, Gandhinagar Gujarat famous furniture showroom for office and household",
+  "description": "Umiya Interior, Famous Furniture Showroom for Interior Solution for Office and Household, Gandhinagar, Gujarat",
   "version": "1.0.0",
   "author": "Deven Goratela",
   "dependencies": {
@@ -38,7 +38,8 @@
   "keywords": [
     "gandhinagar",
     "furniture",
-    "showroom"
+    "showroom",
+    "interior"
   ],
   "license": "MIT",
   "main": "n/a",

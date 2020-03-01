@@ -1,2 +1,2 @@
 # umiyainteriors
-This is the Gatsby + Contentful project developed for Umiya Interiors
+This is the Gatsby + Contentful project developed for Umiya Interior
