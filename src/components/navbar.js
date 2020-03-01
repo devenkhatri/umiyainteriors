@@ -1,61 +1,46 @@
-import React, { useState } from "react"
+import React from "react"
 import { Link } from "gatsby"
-// reactstrap components
-import {
-  Button,
-  Collapse,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
-  NavbarBrand,
-  Navbar,
-  NavbarToggler,
-  NavLink,
-  NavItem,
-  Nav,
-  Container,
-  UncontrolledTooltip
-} from "reactstrap";
+import { Navbar, Nav, NavDropdown, Form, InputGroup, FormControl } from 'react-bootstrap';
 import { IoMdSearch } from "react-icons/io"
 
-function Navigationbar() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggle = () => setIsOpen(!isOpen);
+const Navigationbar = () => {
 
   return (
-    <>
-      <Navbar color="dark" primary expand="md">
-        <NavbarBrand href="/">
+    <div>
+      <Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar.Brand href="/">
           <img
             alt=""
             src="/logo.png"
             width="30"
             height="30"
             className="d-inline-block align-top"
-          />{' '}UMIYA <span className="text-light">INTERIOR</span>
-        </NavbarBrand>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="ml-auto" navbar>
-            <NavItem>
-              <NavLink href="/">Home</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/products">Products</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/productdetail">Product Detail</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/contactus">Contact Us</NavLink>
-            </NavItem>
+          />{' '}UMIYA <span className="text-primary">INTERIOR</span>
+      </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ml-auto">
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/products">Products</Nav.Link>
+            <Nav.Link href="/productdetail">Product Detail</Nav.Link>
+            <Nav.Link href="/contactus">Contact Us</Nav.Link>
           </Nav>
-        </Collapse>
+          <Form inline>
+            <InputGroup>
+              <FormControl
+                placeholder="Search"
+                aria-label="Search"
+                aria-describedby="basic-addon1"
+              />
+              <InputGroup.Append>
+                <InputGroup.Text id="basic-addon1"><IoMdSearch /></InputGroup.Text>
+              </InputGroup.Append>
+            </InputGroup>
+          </Form>
+        </Navbar.Collapse>
       </Navbar>
-    </>
-  );
+    </div>
+  )
 }
 
 export default Navigationbar
