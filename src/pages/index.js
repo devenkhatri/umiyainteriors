@@ -4,6 +4,10 @@ import * as PropTypes from "prop-types"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Banner from "../components/banner"
+import ExploreCategories from "../components/explorecategories"
+import NewArrivals from "../components/newarrivals"
+import BestSellers from "../components/bestsellers"
 
 const propTypes = {
   data: PropTypes.object.isRequired,
@@ -35,12 +39,14 @@ const Product = ({ node }) => (
 
 class IndexPage extends React.Component {
   render() {
-	const siteTitle = this.props.data.site.siteMetadata.title
-	const location = this.props.location
     const usProductEdges = this.props.data.us.edges
     return (
-      <Layout location={location} title={siteTitle}>
-        <SEO title="UI Design" />
+      <Layout>
+        <SEO title="Homepage" />
+        <Banner />
+        <ExploreCategories />
+        <NewArrivals />
+        <BestSellers />
         <div>
           <h3>en-US</h3>
           {usProductEdges.map(({ node }, i) => (
@@ -58,11 +64,6 @@ export default IndexPage
 
 export const pageQuery = graphql`
   query {
-	site {
-      siteMetadata {
-        title
-      }
-    }
     us: allContentfulProduct(filter: { node_locale: { eq: "en-US" } }) {
       edges {
         node {

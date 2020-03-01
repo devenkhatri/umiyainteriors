@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Umiya Interior`,
-	author: {
+    author: {
       name: `Deven Goratela`,
       summary: `who lives and works in Gandhinagar building useful things.`,
     },
@@ -56,7 +56,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `static/logo.png`,
       },
     },
     `gatsby-plugin-react-helmet`,
