@@ -17,7 +17,7 @@ const BuyingButton = ({type}) => {
 
   return (
     <div>
-      <OverlayTrigger trigger="click" placement="right" overlay={popover}>
+      <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
         <Button variant={variant}>Buying Options</Button>
       </OverlayTrigger>
 
