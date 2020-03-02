@@ -21,7 +21,7 @@ class CategoryTemplate extends React.Component {
       product,
       icon,
     } = category
-    const productsCount = product.length
+    const productsCount = product ? product.length : 0
 
     const iconImg = icon.fixed
     return (
