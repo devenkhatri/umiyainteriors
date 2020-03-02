@@ -17,7 +17,7 @@ const ExploreCategories = ({ data }) => {
               </Card>
             </Col>
           ))}
-		  <Card className="w-100" key={node.id}>
+		  <Card className="w-100">
 			<Img src="./view-all.png" />
 		  </Card>
         </Row>
