@@ -13,30 +13,6 @@ const propTypes = {
   data: PropTypes.object.isRequired,
 }
 
-const Product = ({ node }) => (
-  <div>
-    <Link
-      style={{ color: `inherit`, textDecoration: `none` }}
-      to={`/products/${node.slug}/`}
-    >
-      <div
-        style={{
-          display: `flex`,
-          alignItems: `center`,
-          borderBottom: `1px solid lightgray`,
-        }}
-      >
-        <div>
-          {node.image[0].fixed.src && (
-            <Img style={{ margin: 0 }} fixed={node.image[0].fixed} />
-          )}
-        </div>
-        <div style={{ flex: 1 }}>{node.productName.productName}</div>
-      </div>
-    </Link>
-  </div>
-)
-
 class IndexPage extends React.Component {
   render() {
     const allProductEdges = this.props.data.allContentfulProduct.edges
@@ -48,12 +24,6 @@ class IndexPage extends React.Component {
         <ExploreCategories data={allCategoryEdges} />
         <NewArrivals />
         <BestSellers />
-        <div>
-          <h3>en-US</h3>
-          {allProductEdges.map(({ node }, i) => (
-            <Product node={node} key={node.id} />
-          ))}
-        </div>
       </Layout>
     )
   }

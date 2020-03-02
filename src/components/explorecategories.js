@@ -9,17 +9,24 @@ const ExploreCategories = ({ data }) => {
     <div className="pt-5">
       <h3 className="text-center p-4">Explore Our Furniture Range (All Categories)</h3>
       <div>
-        <Row className="d-inline-flex flex-row p-4 flex-wrap">
+        <Row className="d-flex flex-row p-4 flex-wrap">
           {data.map(({ node }, i) => (
-            <Col className="col-sm-3  mb-4">
-              <Card className="w-100" key={node.id}>
-                <Img fluid={node.icon.fluid} />
+            <Col className="col-lg-3  mb-4">
+              <Card className="h-100" key={node.id}>
+                <Card.Header>{node.title.title}</Card.Header>
+                <Link to={`/categories/${node.slug}/`}>
+                  <Img fluid={node.icon.fluid} />
+                </Link>
               </Card>
             </Col>
           ))}
-		  <Card className="w-100">
-			<Img src="./view-all.png" />
-		  </Card>
+          <Col className="col-sm-3  mb-4">
+		        <Card className="h-100">
+		          <Link to={`/products/`}>
+			          <img src="/view-all.png" />
+			        </Link>
+		        </Card>
+		      </Col>
         </Row>
       </div>
     </div>
