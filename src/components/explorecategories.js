@@ -17,26 +17,6 @@ const ExploreCategories = ({ data }) => {
               </Card>
             </Col>
           ))}
-          <Col className="col-lg-3  mb-4">
-            <Card className="h-100">
-              <Card.Img variant="top" src="/img-600-400.png" />
-            </Card></Col>
-          <Col className="col-lg-3  mb-4">
-            <Card className="h-100">
-              <Card.Img variant="top" src="/img-600-400.png" />
-            </Card></Col>
-          <Col className="col-lg-3  mb-4">
-            <Card className="h-100">
-              <Card.Img variant="top" src="/img-600-400.png" />
-            </Card></Col>
-          <Col className="col-lg-3  mb-4">
-            <Card className="h-100">
-              <Card.Img variant="top" src="/img-600-400.png" />
-            </Card></Col>
-          <Col className="col-lg-3  mb-4">
-            <Card className="h-100">
-              <Card.Img variant="top" src="/img-600-400.png" />
-            </Card></Col>
         </Row>
       </div>
     </div>
