@@ -4,6 +4,7 @@ import * as PropTypes from "prop-types"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 const propTypes = {
   data: PropTypes.object.isRequired,
@@ -36,11 +37,7 @@ class ProductTemplate extends React.Component {
         <h4>Made by {brand.companyName.companyName}</h4>
         <div>
           <span>Price: ${price}</span>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: productDescription.childMarkdownRemark.html,
-            }}
-          />
+          {documentToReactComponents(productDescription.json)}
           <div>
             <span>See other: </span>
             <ul>
@@ -70,9 +67,7 @@ export const pageQuery = graphql`
         productName
       }
       productDescription {
-        childMarkdownRemark {
-          html
-        }
+        json
       }
       price
       discountedPrice

@@ -21,7 +21,7 @@ const ProductPage = ({ data }) => {
             <Row className="d-flex flex-row p-4 flex-wrap">
             {allProductEdges &&
               allProductEdges.map(({ node }, i) => (
-                <Col className="col-lg-3  mb-4">
+                <div className="col-lg-4  mb-4">
                   <Card className="h-100 text-center" key={i}>
                     <Card.Header>
                       <Link to={`/products/${node.slug}`}>
@@ -34,8 +34,8 @@ const ProductPage = ({ data }) => {
                         <Img variant="top" fluid={node.image[0].fluid} />
                       </Link>
                     </Card.Body>
-                    <Card.Footer className="d-flex">
-                      <Card.Text className="text-muted mr-auto">
+                    <Card.Footer>
+                      <Card.Text className="text-muted">
                         {node.discountedPrice && node.discountedPrice > 0 ? (
                           <>
                             <del>${node.price}</del><span className="text-primary"> ${node.discountedPrice}</span> 
@@ -45,10 +45,10 @@ const ProductPage = ({ data }) => {
                           )
                         }
                       </Card.Text>
-                      <BuyingButton className="ml-auto" type="info" />
+                      <BuyingButton type="info" />
                     </Card.Footer>
                   </Card>
-                </Col>
+                </div>
               ))}
             </Row>
           </div>

@@ -4,7 +4,7 @@ import * as PropTypes from "prop-types"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Container, Row, Col, CardDeck, Card } from 'react-bootstrap'; 
+import { Container, Row, Col, CardDeck, Card } from 'react-bootstrap';
 import BuyingButton from "../components/buyingbutton"
 
 const propTypes = {
@@ -14,7 +14,7 @@ const propTypes = {
 class CategoryTemplate extends React.Component {
 
   render() {
-    
+
     const category = this.props.data.contentfulCategory
     const {
       title: { title },
@@ -37,41 +37,41 @@ class CategoryTemplate extends React.Component {
           />
           <h3 className="ml-4">Total <span className="text-primary">'{productsCount}'</span> Products found in <span className="text-primary">'{title}'</span> Category</h3>
         </div>
-        
+
         <div>
           <div>
             <Row className="d-flex flex-row p-4 flex-wrap">
-            {product &&
-              product.map((p, i) => (
-                <Col className="col-lg-3  mb-4">
-                  <Card className="h-100 text-center" key={i}>
-                    <Card.Header>
-                      <Link to={`/products/${p.slug}`}>
-                        <Card.Title>{p.productName.productName}</Card.Title>
-                      </Link>
-                      <Card.Subtitle className="text-muted">{p.sku}</Card.Subtitle>
-                    </Card.Header>
-                    <Card.Body>
-                      <Link to={`/products/${p.slug}`}>
-                        <Img variant="top" fluid={p.image[0].fluid} />
-                      </Link>
-                    </Card.Body>
-                    <Card.Footer className="d-flex">
-                      <Card.Text className="text-muted mr-auto">
-                        {p.discountedPrice && p.discountedPrice > 0 ? (
-                          <>
-                            <del>${p.price}</del><span className="text-primary"> ${p.discountedPrice}</span> 
-                          </>
+              {product &&
+                product.map((p, i) => (
+                  <Col className="col-lg-3  mb-4">
+                    <Card className="h-100 text-center" key={i}>
+                      <Card.Header>
+                        <Link to={`/products/${p.slug}`}>
+                          <Card.Title>{p.productName.productName}</Card.Title>
+                        </Link>
+                        <Card.Subtitle className="text-muted">{p.sku}</Card.Subtitle>
+                      </Card.Header>
+                      <Card.Body>
+                        <Link to={`/products/${p.slug}`}>
+                          <Img variant="top" fluid={p.image[0].fluid} />
+                        </Link>
+                      </Card.Body>
+                      <Card.Footer className="d-flex">
+                        <Card.Text className="text-muted mr-auto">
+                          {p.discountedPrice && p.discountedPrice > 0 ? (
+                            <>
+                              <del>${p.price}</del><span className="text-primary"> ${p.discountedPrice}</span>
+                            </>
                           ) : (
-                            <>${p.price}</>
-                          )
-                        }
-                      </Card.Text>
-                      <BuyingButton className="ml-auto" type="info" />
-                    </Card.Footer>
-                  </Card>
-                </Col>
-              ))}
+                              <>${p.price}</>
+                            )
+                          }
+                        </Card.Text>
+                        <BuyingButton className="ml-auto" type="info" />
+                      </Card.Footer>
+                    </Card>
+                  </Col>
+                ))}
             </Row>
           </div>
         </div>
