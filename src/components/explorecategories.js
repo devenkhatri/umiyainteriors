@@ -11,12 +11,15 @@ const ExploreCategories = ({ data }) => {
       <div>
         <Row className="d-inline-flex flex-row p-4 flex-wrap">
           {data.map(({ node }, i) => (
-            <Col className="col-lg-3  mb-4">
+            <Col className="col-sm-3  mb-4">
               <Card className="w-100" key={node.id}>
                 <Img fluid={node.icon.fluid} />
               </Card>
             </Col>
           ))}
+		  <Card className="w-100" key={node.id}>
+			<Img src="./view-all.png" />
+		  </Card>
         </Row>
       </div>
     </div>
