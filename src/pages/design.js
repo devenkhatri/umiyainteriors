@@ -15,9 +15,6 @@ const DesignPage = ({ data, location }) => {
     <Layout>
       <SEO title="UI Design" />
       <Banner/>
-      <ExploreCategories />
-      <NewArrivals />
-      <BestSellers />
     </Layout>
   )
 }
