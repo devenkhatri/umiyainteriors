@@ -34,7 +34,7 @@ const ContactusPage = ({ data, location }) => {
                   You can contact us with anything related to our Products.
                     We'll get in touch with you as soon as possible. <br></br>
                 </p>
-                <form id="contact-form" method="post" role="form" data-netlify="true" data-netlify-honeypot="bot-field">
+                <form id="contact-form" action="/emailsuccess" method="post" role="form" data-netlify="true" data-netlify-honeypot="bot-field">
                   <input type="hidden" name="form-name" value="contact-form" />
                   <label>Your name</label>
                   <InputGroup
