@@ -4,8 +4,7 @@ import * as PropTypes from "prop-types"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { Container, Row, Col, CardDeck, Card } from 'react-bootstrap';
-import BuyingButton from "../components/buyingbutton"
+import { Button, Container, Row, Col, CardDeck, Card } from 'react-bootstrap';
 
 const propTypes = {
   data: PropTypes.object.isRequired,
@@ -60,14 +59,14 @@ class CategoryTemplate extends React.Component {
                         <Card.Text className="text-muted mr-auto">
                           {p.discountedPrice && p.discountedPrice > 0 ? (
                             <>
-                              <del>${p.price}</del><span className="text-primary"> ${p.discountedPrice}</span>
+                              <del>₹{p.price}</del><span className="text-primary"> ₹{p.discountedPrice}</span>
                             </>
                           ) : (
-                              <>${p.price}</>
+                              <>₹{p.price}</>
                             )
                           }
                         </Card.Text>
-                        <BuyingButton className="ml-auto" type="info" />
+                        <Button href={`/products/${p.slug}`} className="ml-auto" variant="info">View Details</Button>
                       </Card.Footer>
                     </Card>
                   </Col>

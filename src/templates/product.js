@@ -6,7 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PageHeader from "../components/pageheader"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import { Container, Row, Col, Carousel, Card } from "react-bootstrap"
+import { Jumbotron, Container, Row, Col, Carousel, Card } from "react-bootstrap"
 import BuyingButton from "../components/buyingbutton"
 
 const propTypes = {
@@ -28,8 +28,10 @@ class ProductTemplate extends React.Component {
     return (
       <Layout>
         <SEO title={`Product: ${productName}`} />
-        <PageHeader title={productName} />
-        
+        <Jumbotron>
+          <h2>{productName}</h2>
+          <h4>Made by {brand.companyName.companyName}</h4>
+        </Jumbotron>
         <Container fluid className="p-3">
         <Row>
           <Col>
@@ -47,15 +49,13 @@ class ProductTemplate extends React.Component {
           <Col md={7}>
             <Card>
               <Card.Body>
-                <h2>{productName}</h2>
-                <h4>Made by {brand.companyName.companyName}</h4>
                 <Card.Title className="text-muted">
-                  {discountedPrice && discountedPrice > 0 ? (
+                  Product Price: {discountedPrice && discountedPrice > 0 ? (
                             <>
-                              <del>${price}</del><span className="text-primary"> ${discountedPrice}</span>
+                              <del>₹{price}</del><span className="text-primary"> ₹{discountedPrice}</span>
                             </>
                           ) : (
-                              <>${price}</>
+                              <>₹{price}</>
                             )
                           }
                 </Card.Title>

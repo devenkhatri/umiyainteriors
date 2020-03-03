@@ -1,8 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
-import { CardDeck, Card } from 'react-bootstrap';
-import BuyingButton from "./buyingbutton"
+import { Button, CardDeck, Card } from 'react-bootstrap';
 
 const NewArrivals = ({data}) => {
 
@@ -28,14 +27,14 @@ const NewArrivals = ({data}) => {
                 <Card.Text className="text-muted mr-auto">
                   {node.discountedPrice && node.discountedPrice > 0 ? (
                     <>
-                      <del>${node.price}</del><span className="text-primary"> ${node.discountedPrice}</span>
+                      <del>₹{node.price}</del><span className="text-primary"> ₹{node.discountedPrice}</span>
                     </>
                   ) : (
-                      <>${node.price}</>
+                      <>₹{node.price}</>
                     )
                   }
                 </Card.Text>
-                <BuyingButton className="ml-auto" />
+                <Button href={`/products/${node.slug}`} className="ml-auto">View Details</Button>
               </Card.Footer>
             </Card>
           ))}

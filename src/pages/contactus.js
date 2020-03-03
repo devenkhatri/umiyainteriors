@@ -130,7 +130,7 @@ const ContactusPage = ({ data, location }) => {
                     We'll get in touch with you as soon as possible. <br></br>
                   <br></br>
                 </p>
-                <Form id="contact-form" method="post" role="form">
+                <Form id="contact-form" method="post" role="form" netlify>
                   <label>Your name</label>
                   <InputGroup
                     className="input-group-focus"

@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import { CardDeck, Card } from 'react-bootstrap';
-import BuyingButton from "./buyingbutton"
+import { Button, CardDeck, Card } from 'react-bootstrap';
 
 const BestSellers = ({data}) => {
 
@@ -27,14 +26,14 @@ const BestSellers = ({data}) => {
                 <Card.Text className="text-muted mr-auto">
                   {node.discountedPrice && node.discountedPrice > 0 ? (
                     <>
-                      <del>${node.price}</del><span className="text-primary"> ${node.discountedPrice}</span>
+                      <del>₹{node.price}</del><span className="text-primary"> ₹{node.discountedPrice}</span>
                     </>
                   ) : (
-                      <>${node.price}</>
+                      <>₹{node.price}</>
                     )
                   }
                 </Card.Text>
-                <BuyingButton className="ml-auto" type="success" />
+                <Button href={`/products/${node.slug}`} className="ml-auto" variant="success">View Details</Button>
               </Card.Footer>
             </Card>
           ))}

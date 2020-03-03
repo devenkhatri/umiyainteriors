@@ -1,31 +1,75 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Banner from "../components/banner"
-import ExploreCategories from "../components/explorecategories"
-import NewArrivals from "../components/newarrivals"
-import BestSellers from "../components/bestsellers"
+import { Media } from "react-bootstrap"
+import BuyingButton from "../components/buyingbutton"
 
 const DesignPage = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title
+
+  const allProductEdges = data.allContentfulProduct.edges
 
   return (
     <Layout>
       <SEO title="UI Design" />
-      <Banner/>
+      
+      <ul className="list-unstyled">
+      {allProductEdges &&
+              allProductEdges.map(({ node }, i) => (
+  <Media as="li" key={i}>
+    <Link to={`/products/${node.slug}`}>
+    <img
+      width={64}
+      height={64}
+      className="mr-3"
+      src={node.image[0].fluid.src}
+    />
+    </Link>
+    <Media.Body>
+      <h5>{node.productName.productName}</h5>
+      <h6>{node.sku}</h6>
+      <p>
+        {node.discountedPrice && node.discountedPrice > 0 ? (
+                          <>
+                            <del>${node.price}</del><span className="text-primary"> ${node.discountedPrice}</span> 
+                          </>
+                          ) : (
+                            <>${node.price}</>
+                          )
+                        }
+                      <BuyingButton type="info" />
+      </p>
+    </Media.Body>
+  </Media>
+  ))}
+
+</ul>
     </Layout>
   )
 }
 
 export default DesignPage
 
-export const pageQuery = graphql`
+export const pageQuery = graphql `
   query {
-    site {
-      siteMetadata {
-        title
+    allContentfulProduct {
+      edges {
+        node {
+          id
+          slug
+          productName {
+            productName
+          }
+          sku
+          price
+          discountedPrice
+          image {
+            fluid {
+              ...GatsbyContentfulFluid
+            }
+          }
+        }
       }
     }
   }

@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Banner from "../components/banner"
 import ExploreCategories from "../components/explorecategories"
+import Aboutus from "../components/about"
 import NewArrivals from "../components/newarrivals"
 import BestSellers from "../components/bestsellers"
 
@@ -22,6 +23,7 @@ class IndexPage extends React.Component {
       <Layout>
         <SEO title="Homepage" />
         <Banner data={homepageData.bannerImages} />
+        <Aboutus data={homepageData.aboutus} />
         <ExploreCategories data={allCategoryEdges} />
         <NewArrivals data={homepageData.newArrivals} />
         <BestSellers data={homepageData.bestSellers}/>
@@ -74,6 +76,9 @@ export const pageQuery = graphql`
         fluid (maxWidth: 1200, maxHeight: 400, resizingBehavior: CROP) {
           src
         }
+      }
+      aboutus {
+        json
       }
       bestSellers {
         slug

@@ -4,8 +4,7 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PageHeader from "../components/pageheader"
-import { Container, Row, Col, CardDeck, Card } from 'react-bootstrap';
-import BuyingButton from "../components/buyingbutton"
+import { Button, Container, Row, Col, CardDeck, Card } from 'react-bootstrap';
 
 const ProductPage = ({ data }) => {
 
@@ -14,8 +13,7 @@ const ProductPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Products" />
-      <PageHeader />
-      <h1>All Products Listing Page</h1>
+      <h1 className="p-4">View All Our Products</h1>
       
       <div>
             <Row className="d-flex flex-row p-4 flex-wrap">
@@ -34,18 +32,18 @@ const ProductPage = ({ data }) => {
                         <Img variant="top" fluid={node.image[0].fluid} />
                       </Link>
                     </Card.Body>
-                    <Card.Footer>
-                      <Card.Text className="text-muted">
+                    <Card.Footer className="d-flex">
+                      <Card.Text className="text-muted mr-auto">
                         {node.discountedPrice && node.discountedPrice > 0 ? (
                           <>
-                            <del>${node.price}</del><span className="text-primary"> ${node.discountedPrice}</span> 
+                            <del>₹{node.price}</del><span className="text-primary"> ₹{node.discountedPrice}</span> 
                           </>
                           ) : (
-                            <>${node.price}</>
+                            <>₹{node.price}</>
                           )
                         }
                       </Card.Text>
-                      <BuyingButton type="info" />
+                      <Button href={`/products/${node.slug}`} className="ml-auto" variant="info">View Details</Button>
                     </Card.Footer>
                   </Card>
                 </div>
