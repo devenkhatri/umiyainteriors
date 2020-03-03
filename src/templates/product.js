@@ -4,7 +4,10 @@ import * as PropTypes from "prop-types"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import PageHeader from "../components/pageheader"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { Container, Row, Col, Carousel, Card } from "react-bootstrap"
+import BuyingButton from "../components/buyingbutton"
 
 const propTypes = {
   data: PropTypes.object.isRequired,
@@ -17,40 +20,66 @@ class ProductTemplate extends React.Component {
       productName: { productName },
       productDescription,
       price,
+      discountedPrice,
       image,
       brand,
       categories,
     } = product
     return (
       <Layout>
-        <SEO title="Product Name" />
-        <div
-          style={{
-            display: `flex`,
-            alignItems: `center`,
-          }}
-        >
-          <Img fixed={image[0].fixed} />
-          <h4>{productName}</h4>
-        </div>
-        <h1>{productName}</h1>
-        <h4>Made by {brand.companyName.companyName}</h4>
-        <div>
-          <span>Price: ${price}</span>
-          {documentToReactComponents(productDescription.json)}
-          <div>
-            <span>See other: </span>
-            <ul>
-              {categories.map((category, i) => (
-                <li key={i}>
-                  <Link key={i} to={`/categories/${category.slug}`}>
-                    {category.title.title}
-                  </Link>
-                </li>
+        <SEO title={`Product: ${productName}`} />
+        <PageHeader title={productName} />
+        
+        <Container fluid className="p-3">
+        <Row>
+          <Col>
+            <Carousel>
+              {image && image.map((item,index) => (
+                <Carousel.Item>
+                  <Img
+                    className="d-block w-100"
+                    fluid={item.fluid}
+                  />
+                </Carousel.Item>
               ))}
-            </ul>
-          </div>
-        </div>
+            </Carousel>
+          </Col>
+          <Col md={7}>
+            <Card>
+              <Card.Body>
+                <h2>{productName}</h2>
+                <h4>Made by {brand.companyName.companyName}</h4>
+                <Card.Title className="text-muted">
+                  {discountedPrice && discountedPrice > 0 ? (
+                            <>
+                              <del>${price}</del><span className="text-primary"> ${discountedPrice}</span>
+                            </>
+                          ) : (
+                              <>${price}</>
+                            )
+                          }
+                </Card.Title>
+                <Card.Text>
+                  {documentToReactComponents(productDescription.json)}
+                </Card.Text>
+                <BuyingButton />
+              </Card.Body>
+              <Card.Footer>
+                <span>See other: </span>
+                <ul>
+                  {categories.map((category, i) => (
+                    <li key={i}>
+                      <Link key={i} to={`/categories/${category.slug}`}>
+                        {category.title.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </Card.Footer>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
       </Layout>
     )
   }
@@ -72,12 +101,8 @@ export const pageQuery = graphql`
       price
       discountedPrice
       image {
-        fixed(width: 50, height: 50) {
-          base64
-          src
-          srcSet
-          height
-          width
+        fluid {
+          ...GatsbyContentfulFluid
         }
       }
       brand {

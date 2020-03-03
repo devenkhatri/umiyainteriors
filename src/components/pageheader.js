@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "react-bootstrap"
 
-function PageHeader() {
+const PageHeader = ({ title }) => {
   let pageHeader = React.createRef();
   React.useEffect(() => {
     if (window.innerWidth > 991) {
@@ -22,7 +22,7 @@ function PageHeader() {
         <Card className="bg-dark text-white">
           <Card.Img className="page-header-image" src="/banner-1200-200.png" alt="Card image" ref={pageHeader} />
           <Card.ImgOverlay>
-            <Card.Title className="text-center">Page title</Card.Title>
+            <Card.Title className="text-center">{title}</Card.Title>
           </Card.ImgOverlay>
         </Card>
       </div>

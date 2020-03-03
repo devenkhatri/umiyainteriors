@@ -22,7 +22,6 @@ const Navigationbar = () => {
           <Nav className="ml-auto">
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/products">Products</Nav.Link>
-            <Nav.Link href="/productdetail">Product Detail</Nav.Link>
             <Nav.Link href="/contactus">Contact Us</Nav.Link>
           </Nav>
           <Form inline>
