@@ -4,14 +4,6 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { FaRegUser, FaMailBulk, FaMobileAlt } from "react-icons/fa"
 
-// react plugin used to create google maps
-import {
-  withScriptjs,
-  withGoogleMap,
-  GoogleMap,
-  Marker
-} from "react-google-maps";
-
 // reactstrap components
 import {
   Button,
@@ -25,94 +17,6 @@ import {
   Row,
   Col
 } from "reactstrap";
-
-const MapWrapper = withScriptjs(
-  withGoogleMap(props => (
-    <GoogleMap
-      defaultZoom={13}
-      defaultCenter={{ lat: 40.748817, lng: -73.985428 }}
-      defaultOptions={{
-        scrollwheel: false,
-        styles: [
-          {
-            featureType: "water",
-            elementType: "geometry",
-            stylers: [{ color: "#e9e9e9" }, { lightness: 17 }]
-          },
-          {
-            featureType: "landscape",
-            elementType: "geometry",
-            stylers: [{ color: "#f5f5f5" }, { lightness: 20 }]
-          },
-          {
-            featureType: "road.highway",
-            elementType: "geometry.fill",
-            stylers: [{ color: "#ffffff" }, { lightness: 17 }]
-          },
-          {
-            featureType: "road.highway",
-            elementType: "geometry.stroke",
-            stylers: [{ color: "#ffffff" }, { lightness: 29 }, { weight: 0.2 }]
-          },
-          {
-            featureType: "road.arterial",
-            elementType: "geometry",
-            stylers: [{ color: "#ffffff" }, { lightness: 18 }]
-          },
-          {
-            featureType: "road.local",
-            elementType: "geometry",
-            stylers: [{ color: "#ffffff" }, { lightness: 16 }]
-          },
-          {
-            featureType: "poi",
-            elementType: "geometry",
-            stylers: [{ color: "#f5f5f5" }, { lightness: 21 }]
-          },
-          {
-            featureType: "poi.park",
-            elementType: "geometry",
-            stylers: [{ color: "#dedede" }, { lightness: 21 }]
-          },
-          {
-            elementType: "labels.text.stroke",
-            stylers: [
-              { visibility: "on" },
-              { color: "#ffffff" },
-              { lightness: 16 }
-            ]
-          },
-          {
-            elementType: "labels.text.fill",
-            stylers: [
-              { saturation: 36 },
-              { color: "#333333" },
-              { lightness: 40 }
-            ]
-          },
-          { elementType: "labels.icon", stylers: [{ visibility: "off" }] },
-          {
-            featureType: "transit",
-            elementType: "geometry",
-            stylers: [{ color: "#f2f2f2" }, { lightness: 19 }]
-          },
-          {
-            featureType: "administrative",
-            elementType: "geometry.fill",
-            stylers: [{ color: "#fefefe" }, { lightness: 20 }]
-          },
-          {
-            featureType: "administrative",
-            elementType: "geometry.stroke",
-            stylers: [{ color: "#fefefe" }, { lightness: 17 }, { weight: 1.2 }]
-          }
-        ]
-      }}
-    >
-      <Marker position={{ lat: 40.748817, lng: -73.985428 }} />
-    </GoogleMap>
-  ))
-);
 
 const ContactusPage = ({ data, location }) => {
 
@@ -130,7 +34,8 @@ const ContactusPage = ({ data, location }) => {
                   You can contact us with anything related to our Products.
                     We'll get in touch with you as soon as possible. <br></br>
                 </p>
-                <form id="contact-form" method="post" role="form" netlify>
+                <form id="contact-form" method="post" role="form" data-netlify="true" data-netlify-honeypot="bot-field">
+                  <input type="hidden" name="form-name" value="contact-form" />
                   <label>Your name</label>
                   <InputGroup
                     className="input-group-focus"
@@ -233,7 +138,7 @@ const ContactusPage = ({ data, location }) => {
         </div>
       </div>
       <div className="big-map" id="contactUs2Map">
-        <MapWrapper
+        <div
           googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBd3PjUqq81lIOfBPYXrQGWwK5T4ystZjA"
           loadingElement={<div style={{ height: `100%` }} />}
           containerElement={<div style={{ height: `100%` }} />}
