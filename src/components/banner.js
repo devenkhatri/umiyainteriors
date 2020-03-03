@@ -1,33 +1,24 @@
 import React from "react"
-import { Link } from "gatsby"
+import Img from "gatsby-image"
 import { Carousel } from 'react-bootstrap';
 
-const Banner = () => {
-
+const Banner = ({data}) => {
+  
   return (
     <div>
       <Carousel>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="/banner-1200-400.png"
-            alt="First slide"
-          />
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="/banner-1200-400.png"
-            alt="Second slide"
-          />
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="/banner-1200-400.png"
-            alt="Third slide"
-          />
-        </Carousel.Item>
+        {data && data.map((image,index) => (
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src={image.fluid.src}
+              alt={image.title}
+            />
+            <Carousel.Caption>
+              <h3>{image.title}</h3>
+            </Carousel.Caption>
+          </Carousel.Item>
+        ))}
       </Carousel>
     </div>
   )

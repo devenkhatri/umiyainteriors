@@ -15,15 +15,16 @@ const propTypes = {
 
 class IndexPage extends React.Component {
   render() {
+    const homepageData = this.props.data.contentfulHomepage
     const allProductEdges = this.props.data.allContentfulProduct.edges
     const allCategoryEdges = this.props.data.allContentfulCategory.edges
     return (
       <Layout>
         <SEO title="Homepage" />
-        <Banner />
+        <Banner data={homepageData.bannerImages} />
         <ExploreCategories data={allCategoryEdges} />
-        <NewArrivals />
-        <BestSellers />
+        <NewArrivals data={homepageData.newArrivals} />
+        <BestSellers data={homepageData.bestSellers}/>
       </Layout>
     )
   }
@@ -66,6 +67,42 @@ export const pageQuery = graphql`
           }
         }
       }
+    }
+    contentfulHomepage {
+      bannerImages {
+        title
+        fluid (maxWidth: 1200, maxHeight: 400, resizingBehavior: CROP) {
+          src
+        }
+      }
+      bestSellers {
+        slug
+        productName {
+          productName
+        }
+        sku
+        price
+        discountedPrice
+        image {
+          fluid {
+            src
+          }
+        }
+      }
+      newArrivals{
+      slug
+      productName {
+        productName
+      }
+      sku
+      price
+      discountedPrice
+      image {
+        fluid {
+          src
+        }
+      }
+    }
     }
   }
 `
