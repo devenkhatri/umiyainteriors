@@ -2,6 +2,7 @@ import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import { FaRegUser, FaMailBulk, FaMobileAlt } from "react-icons/fa"
 
 // react plugin used to create google maps
 import {
@@ -128,16 +129,15 @@ const ContactusPage = ({ data, location }) => {
                 <p className="description">
                   You can contact us with anything related to our Products.
                     We'll get in touch with you as soon as possible. <br></br>
-                  <br></br>
                 </p>
-                <Form id="contact-form" method="post" role="form" netlify>
+                <form id="contact-form" method="post" role="form" netlify>
                   <label>Your name</label>
                   <InputGroup
                     className="input-group-focus"
                   >
                     <InputGroupAddon addonType="prepend">
                       <InputGroupText>
-                        <i className="now-ui-icons users_circle-08"></i>
+                        <FaRegUser />
                       </InputGroupText>
                     </InputGroupAddon>
                     <Input
@@ -153,7 +153,7 @@ const ContactusPage = ({ data, location }) => {
                   >
                     <InputGroupAddon addonType="prepend">
                       <InputGroupText>
-                        <i className="now-ui-icons ui-1_email-85"></i>
+                        <FaMailBulk />
                       </InputGroupText>
                     </InputGroupAddon>
                     <Input
@@ -169,7 +169,7 @@ const ContactusPage = ({ data, location }) => {
                   >
                     <InputGroupAddon addonType="prepend">
                       <InputGroupText>
-                        <i className="now-ui-icons tech_mobile"></i>
+                        <FaMobileAlt />
                       </InputGroupText>
                     </InputGroupAddon>
                     <Input
@@ -197,7 +197,7 @@ const ContactusPage = ({ data, location }) => {
                       Contact Us
                       </Button>
                   </div>
-                </Form>
+                </form>
               </Col>
               <Col className="ml-auto mr-auto" md="5">
                 <div className="info info-horizontal mt-5">

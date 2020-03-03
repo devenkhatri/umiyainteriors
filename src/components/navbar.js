@@ -24,18 +24,6 @@ const Navigationbar = () => {
             <Nav.Link href="/products">Products</Nav.Link>
             <Nav.Link href="/contactus">Contact Us</Nav.Link>
           </Nav>
-          <Form inline>
-            <InputGroup>
-              <FormControl
-                placeholder="Search"
-                aria-label="Search"
-                aria-describedby="basic-addon1"
-              />
-              <InputGroup.Append>
-                <InputGroup.Text id="basic-addon1"><IoMdSearch /></InputGroup.Text>
-              </InputGroup.Append>
-            </InputGroup>
-          </Form>
         </Navbar.Collapse>
       </Navbar>
     </div>
