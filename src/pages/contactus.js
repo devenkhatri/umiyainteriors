@@ -46,6 +46,7 @@ const ContactusPage = ({ data, location }) => {
                       </InputGroupText>
                     </InputGroupAddon>
                     <Input
+                      name="name"
                       aria-label="Your Name..."
                       autoComplete="name"
                       placeholder="Your Name..."
@@ -62,6 +63,7 @@ const ContactusPage = ({ data, location }) => {
                       </InputGroupText>
                     </InputGroupAddon>
                     <Input
+                      name="email"
                       aria-label="Email Here..."
                       autoComplete="email"
                       placeholder="Email Here..."
@@ -78,6 +80,7 @@ const ContactusPage = ({ data, location }) => {
                       </InputGroupText>
                     </InputGroupAddon>
                     <Input
+                      name="phonenumber"
                       autoComplete="number"
                       placeholder="Number Here..."
                       type="text"
