@@ -7,16 +7,13 @@ import { FaRegUser, FaMailBulk, FaMobileAlt } from "react-icons/fa"
 // reactstrap components
 import {
   Button,
-  FormGroup,
-  Form,
-  Input,
-  InputGroupAddon,
-  InputGroupText,
   InputGroup,
+  Form,
+  FormControl,
   Container,
   Row,
   Col
-} from "reactstrap";
+} from "react-bootstrap";
 
 const ContactusPage = ({ data, location }) => {
 
@@ -36,75 +33,32 @@ const ContactusPage = ({ data, location }) => {
                 </p>
                 <form id="contact-form" action="/emailsuccess" method="post" role="form" data-netlify="true" data-netlify-honeypot="bot-field">
                   <input type="hidden" name="form-name" value="contact-form" />
-                  <label>Your name</label>
-                  <InputGroup
-                    className="input-group-focus"
-                  >
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <FaRegUser />
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input
-                      name="name"
-                      aria-label="Your Name..."
-                      autoComplete="name"
-                      placeholder="Your Name..."
-                      type="text"
-                    ></Input>
-                  </InputGroup>
-                  <label>Email address</label>
-                  <InputGroup
-                    className="input-group-focus"
-                  >
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <FaMailBulk />
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input
-                      name="email"
-                      aria-label="Email Here..."
-                      autoComplete="email"
-                      placeholder="Email Here..."
-                      type="email"
-                    ></Input>
-                  </InputGroup>
-                  <label>Phone</label>
-                  <InputGroup
-                    className="input-group-focus"
-                  >
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <FaMobileAlt />
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input
-                      name="phonenumber"
-                      autoComplete="number"
-                      placeholder="Number Here..."
-                      type="text"
-                    ></Input>
-                  </InputGroup>
-                  <FormGroup>
-                    <label>Your message</label>
-                    <Input
-                      id="message"
-                      name="message"
-                      rows="6"
-                      type="textarea"
-                    ></Input>
-                  </FormGroup>
-                  <div className="submit text-center">
-                    <Button
-                      className="btn-raised btn-round"
-                      color="info"
-                      defaultValue="Contact Us"
-                      type="submit"
-                    >
-                      Contact Us
-                      </Button>
-                  </div>
+                  <Form.Group controlId="formBasicName">
+                    <Form.Control name="name" type="name" placeholder="Enter your name" required/>
+                  </Form.Group>
+
+                  <Form.Group controlId="formBasicEmail">
+                    <Form.Control name="email" type="email" placeholder="Enter email" required/>
+                    <Form.Text className="text-muted">
+                      We'll never share your email with anyone else.
+                    </Form.Text>
+                  </Form.Group>
+
+                  <Form.Group controlId="formBasicPhonenumber">
+                    <Form.Control name="phonenumber" type="number" placeholder="Enter phone number" required/>
+                    <Form.Text className="text-muted">
+                      We'll contact you on this number. We never share your phone number with anyone else.
+                    </Form.Text>
+                  </Form.Group>
+
+                  <Form.Group controlId="exampleForm.ControlTextarea1">
+                    <Form.Label>Enter your message here</Form.Label>
+                    <Form.Control name="message" as="textarea" rows="6" />
+                  </Form.Group>
+
+                  <Button variant="success" type="submit">
+                    Contact Us
+                  </Button>
                 </form>
               </Col>
               <Col className="ml-auto mr-auto" md="5">
