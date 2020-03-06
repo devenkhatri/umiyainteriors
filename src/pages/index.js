@@ -23,10 +23,10 @@ class IndexPage extends React.Component {
       <Layout>
         <SEO title="Homepage" />
         <Banner data={homepageData.bannerImages} />
-        <Aboutus data={homepageData.aboutus} />
         <ExploreCategories data={allCategoryEdges} />
         <NewArrivals data={homepageData.newArrivals} />
         <BestSellers data={homepageData.bestSellers}/>
+        <Aboutus data={homepageData.aboutus} />
       </Layout>
     )
   }
