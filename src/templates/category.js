@@ -48,7 +48,6 @@ class CategoryTemplate extends React.Component {
                         <Link to={`/products/${p.slug}`}>
                           <Card.Title>{p.productName.productName}</Card.Title>
                         </Link>
-                        <Card.Subtitle className="text-muted">{p.sku}</Card.Subtitle>
                       </Card.Header>
                       <Card.Body>
                         <Link to={`/products/${p.slug}`}>
@@ -103,7 +102,6 @@ export const pageQuery = graphql`
           productName {
             productName
           }
-          sku
           price
           discountedPrice
           image {

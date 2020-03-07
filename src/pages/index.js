@@ -85,7 +85,6 @@ export const pageQuery = graphql`
         productName {
           productName
         }
-        sku
         price
         discountedPrice
         image {
@@ -99,7 +98,6 @@ export const pageQuery = graphql`
       productName {
         productName
       }
-      sku
       price
       discountedPrice
       image {

@@ -15,7 +15,6 @@ const NewArrivals = ({data}) => {
                 <Link to={`/products/${node.slug}`}>
                   <Card.Title>{node.productName.productName}</Card.Title>
                 </Link>
-                <Card.Subtitle className="text-muted">{node.sku}</Card.Subtitle>
               </Card.Header>
               
               <Card.Body>
