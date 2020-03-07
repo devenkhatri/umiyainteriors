@@ -25,7 +25,6 @@ const ProductPage = ({ data }) => {
                       <Link to={`/products/${node.slug}`}>
                         <Card.Title>{node.productName.productName}</Card.Title>
                       </Link>
-                      <Card.Subtitle className="text-muted">{node.sku}</Card.Subtitle>
                     </Card.Header>
                     <Card.Body>
                       <Link to={`/products/${node.slug}`}>
@@ -67,7 +66,6 @@ export const pageQuery = graphql`
           productName {
             productName
           }
-          sku
           price
           discountedPrice
           image {
