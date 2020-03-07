@@ -5,6 +5,7 @@
   "version": "1.0.0",
   "author": "Deven Goratela",
   "dependencies": {
+    "@contentful/rich-text-html-renderer": "^13.4.0",
     "@contentful/rich-text-react-renderer": "^13.4.0",
     "@contentful/rich-text-types": "^14.1.0",
     "bootstrap": "^4.4.1",
