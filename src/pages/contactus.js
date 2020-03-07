@@ -32,6 +32,9 @@ const ContactusPage = ({ data, location }) => {
           <Container>
             <Row>
               <Col className="ml-auto mr-auto" md="5">
+                <h2 className="title">Scan this QR to Email us</h2>
+                <img src="/qr-email.png" width="25%"/>
+                <h2 className="title">OR</h2>
                 <h2 className="title">Send us a message</h2>
                 <p className="description">
                   You can contact us with anything related to our Products.
@@ -82,7 +85,10 @@ const ContactusPage = ({ data, location }) => {
                     <GoLocation />
                   </div>
                   <div className="description">
-                    <h4 className="info-title">Find us at the office</h4>
+                  <h4 className="title">Scan this QR to Locate us</h4>
+                  <img src="/qr-location.png" width="25%"/>
+                  <h4 className="title">OR</h4>
+                    <h4 className="info-title">Find us at the office address</h4>
                     <p>
                       {documentToReactComponents(homepageData.contactUsPageContactAddress.json,options)}
                     </p>
