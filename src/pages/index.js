@@ -54,7 +54,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulCategory {
+    allContentfulCategory(sort: {fields: updatedAt, order: DESC}) {
       edges {
         node {
           id

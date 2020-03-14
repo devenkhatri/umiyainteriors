@@ -30,7 +30,9 @@ class ProductTemplate extends React.Component {
         <SEO title={`Product: ${productName}`} />
         <Jumbotron>
           <h2>{productName}</h2>
-          <h4>Made by {brand.companyName.companyName}</h4>
+          {brand && brand.companyName (
+            <h4>Made by {brand.companyName.companyName}</h4>
+          )}          
         </Jumbotron>
         <Container fluid className="p-3">
         <Row>
