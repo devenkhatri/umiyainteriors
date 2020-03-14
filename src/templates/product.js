@@ -25,14 +25,16 @@ class ProductTemplate extends React.Component {
       brand,
       categories,
     } = product
+    let manufacturer = "-NA-"
+    if(this.props.data.contentfulProduct.brand && this.props.data.contentfulProduct.brand.companyName){
+      manufacturer = this.props.data.contentfulProduct.brand.companyName.companyName
+    }
     return (
       <Layout>
         <SEO title={`Product: ${productName}`} />
         <Jumbotron>
           <h2>{productName}</h2>
-          {brand && brand.companyName (
-            <h4>Made by {brand.companyName.companyName}</h4>
-          )}          
+          <h4>Made by {manufacturer}</h4>
         </Jumbotron>
         <Container fluid className="p-3">
         <Row>
