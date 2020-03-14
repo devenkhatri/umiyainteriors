@@ -91,4 +91,44 @@ exports.createPages = ({ graphql, actions }) => {
         })
       })
     })
+    .then(() => {
+      graphql(
+        `
+          {
+            allContentfulProductCatalogue(limit: 1000) {
+              edges {
+                node {
+                  slug
+                }
+              }
+            }
+          }
+        `
+      ).then(result => {
+        if (result.errors) {
+          throw result.errors
+        }
+
+        // Create Catalogue pages
+        const catalogueTemplate = path.resolve(`./src/templates/catalogue.js`)
+        // We want to create a detailed page for each
+        // catalogue node. We'll just use the Contentful id for the slug.
+        _.each(result.data.allContentfulProductCatalogue.edges, edge => {
+          // Gatsby uses Redux to manage its internal state.
+          // Plugins and sites can use functions like "createPage"
+          // to interact with Gatsby.
+          createPage({
+            // Each page is required to have a `path` as well
+            // as a template component. The `context` is
+            // optional but is often necessary so the template
+            // can query data specific to each page.
+            path: `/catalogue/${edge.node.slug}/`,
+            component: slash(catalogueTemplate),
+            context: {
+              slug: edge.node.slug,
+            },
+          })
+        })
+      })
+    })
 }

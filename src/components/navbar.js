@@ -22,6 +22,7 @@ const Navigationbar = () => {
           <Nav className="ml-auto">
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/products">Products</Nav.Link>
+            <Nav.Link href="/catalogues">e-Catalogues</Nav.Link>
             <Nav.Link href="/contactus">Contact Us</Nav.Link>
           </Nav>
         </Navbar.Collapse>
