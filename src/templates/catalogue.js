@@ -26,12 +26,7 @@ class CategoryTemplate extends React.Component {
                 <Card>
                     <Card.Header className="bg-success text-center">{title}</Card.Header>
                     <Card.Body>
-                        <PDFViewer
-                            navbarOnTop="true"
-                            document={{
-                                url: cataloguePdf.file.url,
-                            }}
-                        />
+                        <object width="100%" height="500" type="application/pdf" data={cataloguePdf.file.url}></object>
                     </Card.Body>
                 </Card>
             </Layout>
