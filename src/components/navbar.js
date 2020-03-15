@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import { Navbar, Nav, NavDropdown, Form, InputGroup, FormControl } from 'react-bootstrap';
 import { IoMdSearch } from "react-icons/io"
+import SearchBox from "./search/SearchBox"
 
 const Navigationbar = () => {
 
@@ -25,6 +26,7 @@ const Navigationbar = () => {
             <Nav.Link href="/catalogues">e-Catalogues</Nav.Link>
             <Nav.Link href="/contactus">Contact Us</Nav.Link>
           </Nav>
+          <SearchBox />
         </Navbar.Collapse>
       </Navbar>
     </div>
