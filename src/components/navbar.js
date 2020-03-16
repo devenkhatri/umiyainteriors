@@ -17,7 +17,7 @@ const Navigationbar = () => {
             height="30"
             className="d-inline-block align-top"
           />{' '}UMIYA <span className="text-primary">INTERIOR</span>
-      </Navbar.Brand>
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
@@ -26,7 +26,9 @@ const Navigationbar = () => {
             <Nav.Link href="/catalogues">e-Catalogues</Nav.Link>
             <Nav.Link href="/contactus">Contact Us</Nav.Link>
           </Nav>
-          <SearchBox />
+          <Nav>
+            <SearchBox />
+          </Nav>
         </Navbar.Collapse>
       </Navbar>
     </div>
