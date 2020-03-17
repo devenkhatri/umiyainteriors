@@ -42,7 +42,7 @@ class CategoryTemplate extends React.Component {
             <Row className="d-flex flex-row p-4 flex-wrap">
               {product &&
                 product.map((p, i) => (
-                  <Col className="col-lg-3  mb-4">
+                  <div className="col-lg-3  mb-4">
                     <Card className="h-100 text-center" key={i}>
                       <Card.Header>
                         <Link to={`/products/${p.slug}`}>
@@ -68,7 +68,7 @@ class CategoryTemplate extends React.Component {
                         <Button href={`/products/${p.slug}`} className="ml-auto" variant="info">View Details</Button>
                       </Card.Footer>
                     </Card>
-                  </Col>
+                  </div>
                 ))}
             </Row>
           </div>
